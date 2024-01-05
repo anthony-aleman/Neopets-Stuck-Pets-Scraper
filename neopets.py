@@ -4,8 +4,23 @@ import time
 import pandas as pd
 from datetime import datetime
 import random
+import asyncio
+import httpx
+from tkinter import *
 
 wait_times = [1, 3, 5, 8, 10, 12, 13, 14, 15]
+
+
+
+'''
+What I want to do:
+
+- Use GUI to select which pets to search for
+  - Allow user to select a list of pets to search for
+- Run scraper asynchronously as to scrape multiple pages at once
+- Give users the choice to store results in a csv, txt file or a json file
+
+'''
 
 neopets_list = [
     "nimmo", "scorchio","jubjub","grarrl",
@@ -202,8 +217,9 @@ def main_loop():
     """
     create_time_stamped_df()
                         
-                
+root.mainloop()                
 main_loop()
+
 
 """
 NEXT GOAL:
