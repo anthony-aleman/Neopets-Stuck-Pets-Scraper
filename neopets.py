@@ -4,8 +4,9 @@ import time
 import pandas as pd
 from datetime import datetime
 import random
+import sys
 
-wait_times = [1, 3, 5, 8, 10, 12, 13, 14, 15]
+wait_times = [10, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
 neopets_list = [
     "nimmo", "scorchio","jubjub","grarrl",
@@ -193,7 +194,9 @@ def main_loop():
     -Name
     -Color
     -Species
+    -Link to be adopted at
     """
+    print("Using default list loop")
     pet_loop(pet_list=neopets_list)
     
     """
@@ -201,15 +204,26 @@ def main_loop():
     neopets_year_month_day_hour_minute_second.csv
     """
     create_time_stamped_df()
+
+
+def command_line_loop(neopets_to_scrape):
+    print("Using command line loop")
+    pet_loop(pet_list=neopets_to_scrape)
+    create_time_stamped_df()
                         
                 
-main_loop()
+if __name__ == "__main__":
+    # Using command line arguements if provided otherwise use default main loop
+    args = sys.argv[1:]
+    neopets = []
 
-"""
-NEXT GOAL:
-Find pets with names that contain
-    -solely letters, 
-    -no numbers, 
-    -inital character capitalized, 
-    -Total Characters <= 8
-"""
+
+    if args:
+        print("Using command line arguements")
+        
+        neopets = args[0].split()
+        print(neopets)
+        command_line_loop(neopets)
+    else:
+        print("Using default main loop")
+        main_loop()
