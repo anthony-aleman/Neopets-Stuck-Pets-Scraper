@@ -1,0 +1,1 @@
+clang -o main main.c && ./main neopets_2024_02_05-09_55_31_PM.csv

@@ -13,11 +13,11 @@ bool very_well_named(int len, char* token) {
 
     
     //printf("running loop\n");
-    for (int i = 0; i < len; i++)
+    for (int i = 1; i < len; i++)
     {
 
         //printf("%c\n", token[i]);
-        if (!isdigit(token[i]) )
+        if (isdigit(token[i]) || !isalpha(token[i]) || isupper(token[i]))
         {
             //printf("Not very well named: %s\n", token);
             return false;
